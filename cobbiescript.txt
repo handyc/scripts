@@ -1,0 +1,33 @@
+#!/usr/pkg/bin/expect -f
+
+set roomname [lindex $argv 0];
+
+set force_conservative 0  ;# set to 1 to force conservative mode even if
+                          ;# script wasn't run conservatively originally
+if {$force_conservative} {
+        set send_slow {1 .1}
+        proc send {ignore arg} {
+                sleep .1
+                exp_send -s -- $arg
+        }
+}
+
+set timeout -1
+spawn /usr/pkg/bin/com
+match_max 100000
+
+expect {
+        "Terminate old session? (y/n)" {
+        send -- "y"
+        exp_continue
+        }
+        "TIP:" {
+        send -- "p"
+        expect -exact ":peek> "
+        send -- "$roomname r\r"
+        log_file /sdf/arpa/gm/h/handyc/scripts/coblog
+        expect -exact "--Review-Complete---------------------------------------------------------------"
+        log_file
+        send -- "q"
+        }
+        } 
