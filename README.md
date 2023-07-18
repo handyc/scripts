@@ -11,3 +11,5 @@ mkradio.sh -- automated show setup for anonradio.net (sdf.org Internet radio com
 
 cobbie.sh / cobbiescript.txt -- simple com logging utility for sdf.org com chat
 
+heatclock.sh -- simple command line clock combining current UTC time with information about the age / expected end of the universe
+
