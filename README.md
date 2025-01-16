@@ -14,3 +14,5 @@ cobbie.sh / cobbiescript.txt -- simple com logging utility for sdf.org com chat
 heatclock.sh -- simple command line clock combining current UTC time with information about the age / expected end of the universe
 
 rwn.sh -- silly little arrow key / graphics menu test in bash
+
+copychoice.ps1 -- simple Windows Powershell script for copying and sorting files based on first character of filename
